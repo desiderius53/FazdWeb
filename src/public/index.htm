@@ -1,0 +1,49 @@
+<html>
+	<head>
+		<script src="js/angular.min.js"></script>
+		<script src="js/app.js"></script>
+		<link href="css/bootstrap.min.css" rel="stylesheet">
+		<link href="css/simple-sidebar.css" rel="stylesheet">
+	</head>
+
+
+	<body ng-app="FazdApp">
+		<nav class="navbar navbar-default">
+			<div class="container-fluid">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#">Fazd</a>
+				</div>
+
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav">
+						<li class="active"><a href="#">Recipe Search<span class="sr-only">(current)</span></a></li>
+						</li>
+					</ul>
+				</div><!-- /.navbar-collapse -->
+			</div><!-- /.container-fluid -->
+		</nav>
+		<!-- Sidebar -->
+		<div id="wrapper">
+			<div id="sidebar-wrapper" ng-controller="BookController">
+				<ul class="sidebar-nav">
+					<li ng-repeat="book in books"> <a href="#" ng-click="setBook($index)"><b >{{book.bookName}} </b><i style="font-size: 9px">by {{book.bookAuthor}}</i></a> </li>
+				</ul>
+			</div>
+			<!-- /#sidebar-wrapper -->
+			<div id="page-content-wrapper" ng-controller="RecipeController">
+				<div class="container-fluid">
+					<h1>{{currentBook.bookName}}</h1>
+					<h3 ng-show="currentBook.bookAuthor !== undefined">A book by {{currentBook.bookAuthor}}</h3>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
