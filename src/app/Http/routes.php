@@ -15,9 +15,9 @@
 
 
 
-Route::group(['middleware' => 'CORS'], function()
-{
+Route::get('/', function() {
+	return Redirect::to("index.htm");
+});
 Route::resource("book","bookController",["except" =>["create, edit"]]);
 Route::resource("recipe","recipeController",["except" =>["create, edit"]]);
-});
 
